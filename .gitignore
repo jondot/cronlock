@@ -1,0 +1,3 @@
+cronlock
+*.lock
+*.cronlock
