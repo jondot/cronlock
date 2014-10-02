@@ -1,3 +1,4 @@
 cronlock
 *.lock
 *.cronlock
+pkg/

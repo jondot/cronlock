@@ -13,6 +13,11 @@ A good design is to have a circuitbreaker in place.
 
 In our case - fail the next cron job when an existing cron job is already running.
 
+## Quick start
+
+Download a binary release here:
+
+[https://github.com/jondot/cronlock/releases/tag/1.0.1](https://github.com/jondot/cronlock/releases/tag/1.0.1)
 
 
 ## Usage
