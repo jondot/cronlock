@@ -1,6 +1,8 @@
 package main
 import (
   "syscall"
+  "os"
+  "os/exec"
 )
 
 func main() {
@@ -20,7 +22,14 @@ func main() {
     print("Cronlock: can't acquire ["+lockfile+"]")
     syscall.Exit(1)
   }
-  println("Cronlock: locked ["+lockfile+"]. Returning success.")
+
+  out, err := exec.Command(os.Args[1], os.Args[2:]...).Output()
+
+  if err != nil{
+    print("Cronlock: failed command ["+err.Error()+"]")
+    syscall.Exit(1)
+  }
+  println("Cronlock: finished running. Output:\n"+string(out))
 }
 
 

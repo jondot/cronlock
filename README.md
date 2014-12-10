@@ -17,7 +17,7 @@ In our case - fail the next cron job when an existing cron job is already runnin
 
 Download a binary release here:
 
-[https://github.com/jondot/cronlock/releases/tag/1.0.1](https://github.com/jondot/cronlock/releases/tag/1.0.1)
+[https://github.com/jondot/cronlock/releases/tag/1.0.2](https://github.com/jondot/cronlock/releases/tag/1.0.2)
 
 
 ## Usage
@@ -31,13 +31,14 @@ You can exploit these two properties in order to make sure your Cron job
 doesn't step on itself:
 
 ```
-$ cronlock && your-required-commmand
+$ cronlock your required command && signal success command
 ```
 
 you can also define your own lock with the `CRONLOCK_LOCKFILE` environment variable:
 
 ```
-$ CRONLOCK_LOCKFILE=foobar.lock cronlock && your-required-commmand
+$ CRONLOCK_LOCKFILE=foobar.lock cronlock your required command && your
+success command
 ```
 
 Cronlock is build around `flock` internally and uses just the `syscall` package to stay lean and mean, which should be stable and reliable for this use case. That's basically it.
